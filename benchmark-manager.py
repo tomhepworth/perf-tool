@@ -1,8 +1,6 @@
 import subprocess
 import os
-import re
 from datetime import datetime
-from types import NoneType
 
 ## TODO:
 ## - CLI args for core count to make the script processor-agnostic
@@ -17,23 +15,28 @@ PID = os.getpid()  # process id of this script, the pid is used to dynamically r
 RUNS = 10  # how many times to run each benchmark
 now = datetime.now()
 
-benchmarks = [{"name": "loop/1000000", "cmd": "awk 'BEGIN{for(i=0;i<1000000;i++){}}'"}, {"name": "ls", "cmd": "ls empty"}]
+benchmarks = [{"name": "loop/1000000", "cmd": "awk 'BEGIN{for(i=0;i<1000000;i++){}}'"}, {"name": "ls", "cmd": "ls"}]
 
 # M1 has 8 cores
 cpus = [0, 1, 2, 3, 4, 5, 6, 7]
 
-perf_cmd = "perf stat --all-user -C {} -e cycles,instructions -r {} "
+events = ["cycles", "instructions"]
+events_str = ",".join(events)
+perf_cmd = "perf stat -x, --all-user -C {} -e {} -r {} "
 taskset_cmd = "taskset --cpu-list {} "
 with open("benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:%S")), "a") as output_file:
 
-    # csv column names
-    output_file.write("benchmark_name,benchmark_cmd,target_cpu,RUNS,n_cycles,cycles_variance_percent,n_instr,ipc,instructions_variance_percent,mean_time,time_variance,time_variance_percent\n")
+    # write csv column headers
+    # Add scripts details then fields from https://man7.org/linux/man-pages/man1/perf-stat.1.html#CSV_FORMAT
+    output_file.write(
+        "benchmark_name,benchmark_cmd,targt_cpu,runs,counter_value,counter_value_unit,event_name,variance_between_runs,run_time_of_counter,percentage_of_time_counter_was_running,metric_value,unit_of_metric\n"
+    )
 
     for benchmark in benchmarks:
         for target_cpu in cpus:
 
             # Assembly benchmar command
-            cmd = taskset_cmd.format(target_cpu) + perf_cmd.format(target_cpu, RUNS) + benchmark["cmd"]
+            cmd = taskset_cmd.format(target_cpu) + perf_cmd.format(target_cpu, events_str, RUNS) + benchmark["cmd"]
 
             # UNSURE IF NECESSARY: Schedule *this python script* to run on different core(s) to the one being profiled:
             # Masks:  0x00000001 is cpu 1, 0x00000003 is cpu(s) 1,3... etc
@@ -50,39 +53,13 @@ with open("benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:%S")), 
             # Parse and format data
             lines = cmd_output.splitlines()
 
-            # Remove blank lines
-            lines = [x for x in lines if x != ""]
+            # Perf output will be the final n lines of stdout (benchmark might print stuff), where n is the number of events
+            lines = lines[-len(events) :]
 
-            # Get cycle data
-            print(lines[1])
-            regex_pattern_cycle = " *([0-9,]+) *cycles *\( +\+\- +([0-9\.\%]*) +\)"
-            line_cycle_match = re.match(regex_pattern_cycle, lines[1])
-            if line_cycle_match == None:
-                print("Regex failed: exting")
-                print(lines[1])
-                print(regex_pattern_cycle)
-                print(cmd_output)
-                exit(1)
+            # Put current benchmark and target cpu into the csv output from perf
+            lines = ["{},{},{},{},".format(benchmark["name"], benchmark["cmd"], target_cpu, RUNS) + x for x in lines]
 
-            n_cycles = line_cycle_match.group(1).replace(",", "")  # mean over all runs, remove commas to avoid corrupting .csv
-            cycles_variance_percent = line_cycle_match.group(2)
-
-            # Get instructions data
-            line_instructons_match = re.match(" *([0-9,]+) *instructions[\ \#]* *([0-9\.]*)  insn per cycle *\( \+\-  ([0-9\.\%]*) \)", lines[2])
-            n_instr = line_instructons_match.group(1).replace(",", "")  # mean over all runs
-            ipc = line_instructons_match.group(2)
-            instructions_variance_percent = line_instructons_match.group(3)
-
-            # Get time data
-            line_time_match = re.match(" *([0-9\.]*) \+\- ([0-9\.]*) seconds time elapsed +\( \+\- +([0-9\.\%]*) \)", lines[3])
-            mean_time = line_time_match.group(1)
-            time_variance = line_time_match.group(2)
-            time_variance_percent = line_time_match.group(3)
-
-            output_str = "{},{},{},{},{},{},{},{},{},{},{},{}\n".format(
-                benchmark["name"], benchmark["cmd"], target_cpu, RUNS, n_cycles, cycles_variance_percent, n_instr, ipc, instructions_variance_percent, mean_time, time_variance, time_variance_percent
-            )
-
-            output_file.write(output_str)
+            for line in lines:
+                output_file.write(line + "\n")
 
     output_file.close()
