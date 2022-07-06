@@ -1,0 +1,13 @@
+{
+    "benchmarks": [
+        {
+            "name": "loop/1000000",
+            "cmd": "awk 'BEGIN{for(i=0;i<1000000;i++){}}'"
+        },
+        {
+            "name": "ls",
+            "cmd": "ls"
+        }
+    ],
+    "cores": [0, 1, 2, 3, 4, 5, 6, 7]
+}

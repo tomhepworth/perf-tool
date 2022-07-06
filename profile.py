@@ -1,24 +1,25 @@
 import subprocess
 import os
+import json
 from datetime import datetime
 
-## TODO:
-## - CLI args for core count to make the script processor-agnostic
+WRITE_COLUMN_HEADERS = True
 
 # Must be sudo for perf stat to work properly
 if os.geteuid() != 0:
     print("Aborted: This script must be run as sudo.")
     exit(1)
 
+config_file = open("config.json")
+config = json.load(config_file)
 
 PID = os.getpid()  # process id of this script, the pid is used to dynamically reschedule the script onto cores other than the one being profiled
 RUNS = 10  # how many times to run each benchmark
 now = datetime.now()
 
-benchmarks = [{"name": "loop/1000000", "cmd": "awk 'BEGIN{for(i=0;i<1000000;i++){}}'"}, {"name": "ls", "cmd": "ls"}]
-
-# M1 has 8 cores
-cpus = [0, 1, 2, 3, 4, 5, 6, 7]
+# import config
+benchmarks = config["benchmarks"]
+cpus = config["cores"]
 
 events = ["cycles", "instructions"]
 events_str = ",".join(events)
@@ -28,9 +29,10 @@ with open("benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:%S")), 
 
     # write csv column headers
     # Add scripts details then fields from https://man7.org/linux/man-pages/man1/perf-stat.1.html#CSV_FORMAT
-    output_file.write(
-        "benchmark_name,benchmark_cmd,targt_cpu,runs,counter_value,counter_value_unit,event_name,variance_between_runs,run_time_of_counter,percentage_of_time_counter_was_running,metric_value,unit_of_metric\n"
-    )
+    if WRITE_COLUMN_HEADERS:
+        output_file.write(
+            "benchmark_name,benchmark_cmd,target_cpu,runs,counter_value,counter_value_unit,event_name,variance_between_runs,run_time_of_counter,percentage_of_time_counter_was_running,metric_value,unit_of_metric\n"
+        )
 
     for benchmark in benchmarks:
         for target_cpu in cpus:
@@ -63,3 +65,4 @@ with open("benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:%S")), 
                 output_file.write(line + "\n")
 
     output_file.close()
+    config_file.close()
