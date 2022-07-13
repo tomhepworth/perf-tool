@@ -13,6 +13,8 @@ if os.geteuid() != 0:
 config_file = open("config.json")
 config = json.load(config_file)
 
+wd = os.getcwd() # get starting working directory to change back to if any benchmarks requre being run from a different dir
+
 PID = os.getpid()  # process id of this script, the pid is used to dynamically reschedule the script onto cores other than the one being profiled
 RUNS = 10  # how many times to run each benchmark
 now = datetime.now()
@@ -36,6 +38,17 @@ with open("benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:%S")), 
 
     for benchmark in benchmarks:
         for target_cpu in cpus:
+            
+            changed_directory = False
+
+            try:
+                run_from_dir = benchmark["run_from"]  ## will give KeyError exception if run_from is not a valid json key for this benchmark
+                os.chdir(run_from_dir)
+                changed_directory = True
+                print("Changed directory to: {}".format(run_from_dir))
+            except KeyError:  ## If there was no "run_from" field in the json, dont do anything
+                pass
+
 
             # Assembly benchmar command
             cmd = taskset_cmd.format(target_cpu) + perf_cmd.format(target_cpu, events_str, RUNS) + benchmark["cmd"]
@@ -63,6 +76,9 @@ with open("benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:%S")), 
 
             for line in lines:
                 output_file.write(line + "\n")
+
+            if changed_directory:
+                os.chdir(wd)
 
     output_file.close()
     config_file.close()

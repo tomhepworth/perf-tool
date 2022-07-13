@@ -1,0 +1,177 @@
+benchmark_name,benchmark_cmd,target_cpu,runs,counter_value,counter_value_unit,event_name,variance_between_runs,run_time_of_counter,percentage_of_time_counter_was_running,metric_value,unit_of_metric
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',0,10,137682327,,cycles,1.03%,76463376,100.00,,
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',0,10,421564525,,instructions,0.00%,76462958,100.00,3.02,insn per cycle
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',1,10,136850479,,cycles,1.33%,80503333,100.00,,
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',1,10,421564531,,instructions,0.00%,80502750,100.00,3.00,insn per cycle
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',2,10,142487309,,cycles,0.72%,82941208,100.00,,
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',2,10,421564517,,instructions,0.00%,82940291,100.00,3.04,insn per cycle
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',3,10,137694870,,cycles,0.80%,80862501,100.00,,
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',3,10,421564529,,instructions,0.00%,80862167,100.00,3.01,insn per cycle
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',4,10,75543668,,cycles,0.26%,31949375,100.00,,
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',4,10,421564484,,instructions,0.00%,31949292,100.00,5.59,insn per cycle
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',5,10,75115700,,cycles,0.20%,29399916,100.00,,
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',5,10,421564481,,instructions,0.00%,29399791,100.00,5.62,insn per cycle
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',6,10,76017512,,cycles,0.21%,29729041,100.00,,
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',6,10,421564482,,instructions,0.00%,29728958,100.00,5.58,insn per cycle
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',7,10,74963650,,cycles,0.26%,31963959,100.00,,
+loop/1000000,awk 'BEGIN{for(i=0;i<1000000;i++){}}',7,10,421564485,,instructions,0.00%,31963875,100.00,5.59,insn per cycle
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,0,10,48700654,,cycles,0.14%,36344791,100.00,,
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,0,10,103698928,,instructions,0.00%,36344000,100.00,2.13,insn per cycle
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,1,10,48690158,,cycles,0.12%,33307167,100.00,,
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,1,10,103698865,,instructions,0.00%,33306083,100.00,2.13,insn per cycle
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,2,10,48712664,,cycles,0.11%,34384708,100.00,,
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,2,10,103698851,,instructions,0.00%,34383125,100.00,2.13,insn per cycle
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,3,10,48804410,,cycles,0.11%,37182958,100.00,,
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,3,10,103698886,,instructions,0.00%,37179709,100.00,2.13,insn per cycle
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,4,10,26198439,,cycles,0.06%,10950791,100.00,,
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,4,10,103698708,,instructions,0.00%,10950625,100.00,3.97,insn per cycle
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,5,10,26098871,,cycles,0.10%,10830625,100.00,,
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,5,10,103698755,,instructions,0.00%,10830416,100.00,3.97,insn per cycle
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,6,10,26046446,,cycles,0.05%,19131458,100.00,,
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,6,10,103699005,,instructions,0.00%,19129208,100.00,3.97,insn per cycle
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,7,10,26110738,,cycles,0.04%,18800959,100.00,,
+miniFMM,/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task,7,10,103699028,,instructions,0.00%,18798709,100.00,3.97,insn per cycle
+miniBUDE_openmp,./bude,0,10,91267097601,,cycles,0.00%,44306138248,100.00,,
+miniBUDE_openmp,./bude,0,10,147844726232,,instructions,0.00%,44306137872,100.00,1.62,insn per cycle
+miniBUDE_openmp,./bude,1,10,91268656852,,cycles,0.00%,44304463622,100.00,,
+miniBUDE_openmp,./bude,1,10,147844726189,,instructions,0.00%,44304463789,100.00,1.62,insn per cycle
+miniBUDE_openmp,./bude,2,10,91266849570,,cycles,0.00%,44303976915,100.00,,
+miniBUDE_openmp,./bude,2,10,147844726202,,instructions,0.00%,44303976248,100.00,1.62,insn per cycle
+miniBUDE_openmp,./bude,3,10,91276934922,,cycles,0.01%,44306910455,100.00,,
+miniBUDE_openmp,./bude,3,10,147844726181,,instructions,0.00%,44306910164,100.00,1.62,insn per cycle
+miniBUDE_openmp,./bude,4,10,32128244889,,cycles,0.00%,10780068042,100.00,,
+miniBUDE_openmp,./bude,4,10,147844693540,,instructions,0.00%,10780067958,100.00,4.60,insn per cycle
+miniBUDE_openmp,./bude,5,10,32127943844,,cycles,0.01%,10777580583,100.00,,
+miniBUDE_openmp,./bude,5,10,147844693612,,instructions,0.00%,10777580167,100.00,4.60,insn per cycle
+miniBUDE_openmp,./bude,6,10,32149909534,,cycles,0.01%,10784440667,100.00,,
+miniBUDE_openmp,./bude,6,10,147844693625,,instructions,0.00%,10784440459,100.00,4.60,insn per cycle
+miniBUDE_openmp,./bude,7,10,32130553094,,cycles,0.01%,10779224125,100.00,,
+miniBUDE_openmp,./bude,7,10,147844693975,,instructions,0.00%,10779223875,100.00,4.60,insn per cycle
+tealeaf_2d_serial,./tealeaf.serial,0,10,23705192798,,cycles,0.02%,11585399540,100.00,,
+tealeaf_2d_serial,./tealeaf.serial,0,10,55320603578,,instructions,0.00%,11585399414,100.00,2.33,insn per cycle
+tealeaf_2d_serial,./tealeaf.serial,1,10,23711822909,,cycles,0.01%,11575006331,100.00,,
+tealeaf_2d_serial,./tealeaf.serial,1,10,55320603928,,instructions,0.00%,11575006081,100.00,2.33,insn per cycle
+tealeaf_2d_serial,./tealeaf.serial,2,10,23707996251,,cycles,0.01%,11576667290,100.00,,
+tealeaf_2d_serial,./tealeaf.serial,2,10,55320603452,,instructions,0.00%,11576682831,100.00,2.33,insn per cycle
+tealeaf_2d_serial,./tealeaf.serial,3,10,23701107696,,cycles,0.01%,11580754539,100.00,,
+tealeaf_2d_serial,./tealeaf.serial,3,10,55320603435,,instructions,0.00%,11580754997,100.00,2.33,insn per cycle
+tealeaf_2d_serial,./tealeaf.serial,4,10,15824677037,,cycles,0.05%,5326816771,100.00,,
+tealeaf_2d_serial,./tealeaf.serial,4,10,55320590688,,instructions,0.00%,5326817021,100.00,3.50,insn per cycle
+tealeaf_2d_serial,./tealeaf.serial,5,10,15795842814,,cycles,0.03%,5312351813,100.00,,
+tealeaf_2d_serial,./tealeaf.serial,5,10,55320590878,,instructions,0.00%,5312351522,100.00,3.50,insn per cycle
+tealeaf_2d_serial,./tealeaf.serial,6,10,15759945822,,cycles,0.07%,5303655396,100.00,,
+tealeaf_2d_serial,./tealeaf.serial,6,10,55320591389,,instructions,0.00%,5303655146,100.00,3.50,insn per cycle
+tealeaf_2d_serial,./tealeaf.serial,7,10,15799748026,,cycles,0.03%,5322334146,100.00,,
+tealeaf_2d_serial,./tealeaf.serial,7,10,55320591005,,instructions,0.00%,5322334229,100.00,3.50,insn per cycle
+tealeaf_2d_omp3,./tealeaf.omp3,0,10,23767476666,,cycles,0.02%,11643074998,100.00,,
+tealeaf_2d_omp3,./tealeaf.omp3,0,10,54850777201,,instructions,0.00%,11643074497,100.00,2.31,insn per cycle
+tealeaf_2d_omp3,./tealeaf.omp3,1,10,23743567938,,cycles,0.02%,11631644622,100.00,,
+tealeaf_2d_omp3,./tealeaf.omp3,1,10,54850777407,,instructions,0.00%,11631644747,100.00,2.31,insn per cycle
+tealeaf_2d_omp3,./tealeaf.omp3,2,10,23768877974,,cycles,0.03%,11634897789,100.00,,
+tealeaf_2d_omp3,./tealeaf.omp3,2,10,54850777789,,instructions,0.00%,11634898081,100.00,2.31,insn per cycle
+tealeaf_2d_omp3,./tealeaf.omp3,3,10,23746689285,,cycles,0.02%,11614629330,100.00,,
+tealeaf_2d_omp3,./tealeaf.omp3,3,10,54850777127,,instructions,0.00%,11614629997,100.00,2.31,insn per cycle
+tealeaf_2d_omp3,./tealeaf.omp3,4,10,15867050286,,cycles,0.09%,5351509480,100.00,,
+tealeaf_2d_omp3,./tealeaf.omp3,4,10,54850764448,,instructions,0.00%,5351509688,100.00,3.45,insn per cycle
+tealeaf_2d_omp3,./tealeaf.omp3,5,10,15888114764,,cycles,0.06%,5359707520,100.00,,
+tealeaf_2d_omp3,./tealeaf.omp3,5,10,54850764389,,instructions,0.00%,5359707146,100.00,3.45,insn per cycle
+tealeaf_2d_omp3,./tealeaf.omp3,6,10,15839961229,,cycles,0.07%,5341857688,100.00,,
+tealeaf_2d_omp3,./tealeaf.omp3,6,10,54850764338,,instructions,0.00%,5341857730,100.00,3.47,insn per cycle
+tealeaf_2d_omp3,./tealeaf.omp3,7,10,15810513574,,cycles,0.05%,5334101396,100.00,,
+tealeaf_2d_omp3,./tealeaf.omp3,7,10,54850764580,,instructions,0.00%,5334101396,100.00,3.47,insn per cycle
+tealeaf_3d_serial,./tealeaf_serial,0,10,23024865590,,cycles,0.09%,11265278540,100.00,,
+tealeaf_3d_serial,./tealeaf_serial,0,10,40065086593,,instructions,0.00%,11265278249,100.00,1.74,insn per cycle
+tealeaf_3d_serial,./tealeaf_serial,1,10,23182693825,,cycles,0.10%,11336074874,100.00,,
+tealeaf_3d_serial,./tealeaf_serial,1,10,40065086633,,instructions,0.00%,11336074416,100.00,1.73,insn per cycle
+tealeaf_3d_serial,./tealeaf_serial,2,10,23085569187,,cycles,0.07%,11285694415,100.00,,
+tealeaf_3d_serial,./tealeaf_serial,2,10,40065086611,,instructions,0.00%,11285694623,100.00,1.73,insn per cycle
+tealeaf_3d_serial,./tealeaf_serial,3,10,23202590203,,cycles,0.12%,11349092832,100.00,,
+tealeaf_3d_serial,./tealeaf_serial,3,10,40065086822,,instructions,0.00%,11349092416,100.00,1.73,insn per cycle
+tealeaf_3d_serial,./tealeaf_serial,4,10,10613834655,,cycles,0.36%,3594603653,100.00,,
+tealeaf_3d_serial,./tealeaf_serial,4,10,40065076381,,instructions,0.00%,3594603278,100.00,3.76,insn per cycle
+tealeaf_3d_serial,./tealeaf_serial,5,10,10614090103,,cycles,0.51%,3592748986,100.00,,
+tealeaf_3d_serial,./tealeaf_serial,5,10,40065076894,,instructions,0.00%,3592748903,100.00,3.75,insn per cycle
+tealeaf_3d_serial,./tealeaf_serial,6,10,10695056219,,cycles,0.31%,3617723694,100.00,,
+tealeaf_3d_serial,./tealeaf_serial,6,10,40065076098,,instructions,0.00%,3617722695,100.00,3.75,insn per cycle
+tealeaf_3d_serial,./tealeaf_serial,7,10,10698483321,,cycles,0.58%,3634228819,100.00,,
+tealeaf_3d_serial,./tealeaf_serial,7,10,40065076714,,instructions,0.00%,3634228819,100.00,3.75,insn per cycle
+tealeaf_3d_omp3,./tealeaf_omp3,0,10,23068957336,,cycles,0.48%,11278217998,100.00,,
+tealeaf_3d_omp3,./tealeaf_omp3,0,10,40065087009,,instructions,0.00%,11278217832,100.00,1.73,insn per cycle
+tealeaf_3d_omp3,./tealeaf_omp3,1,10,23242761280,,cycles,0.10%,11366964457,100.00,,
+tealeaf_3d_omp3,./tealeaf_omp3,1,10,40065087226,,instructions,0.00%,11366964457,100.00,1.73,insn per cycle
+tealeaf_3d_omp3,./tealeaf_omp3,2,10,23139708720,,cycles,0.10%,11313806623,100.00,,
+tealeaf_3d_omp3,./tealeaf_omp3,2,10,40065087121,,instructions,0.00%,11313806581,100.00,1.73,insn per cycle
+tealeaf_3d_omp3,./tealeaf_omp3,3,10,23130479053,,cycles,0.61%,11312255665,100.00,,
+tealeaf_3d_omp3,./tealeaf_omp3,3,10,40065087019,,instructions,0.00%,11312256082,100.00,1.73,insn per cycle
+tealeaf_3d_omp3,./tealeaf_omp3,4,10,10560306832,,cycles,0.09%,3574137152,100.00,,
+tealeaf_3d_omp3,./tealeaf_omp3,4,10,40065076388,,instructions,0.00%,3574136944,100.00,3.78,insn per cycle
+tealeaf_3d_omp3,./tealeaf_omp3,5,10,10545500191,,cycles,1.09%,3567693028,100.00,,
+tealeaf_3d_omp3,./tealeaf_omp3,5,10,40065076787,,instructions,0.00%,3567692570,100.00,3.71,insn per cycle
+tealeaf_3d_omp3,./tealeaf_omp3,6,10,10597698931,,cycles,0.55%,3585798278,100.00,,
+tealeaf_3d_omp3,./tealeaf_omp3,6,10,40065077038,,instructions,0.00%,3585797570,100.00,3.75,insn per cycle
+tealeaf_3d_omp3,./tealeaf_omp3,7,10,10706886951,,cycles,0.13%,3623242570,100.00,,
+tealeaf_3d_omp3,./tealeaf_omp3,7,10,40065076582,,instructions,0.00%,3623242278,100.00,3.77,insn per cycle
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,0,10,3996120,,cycles,0.17%,2124500,100.00,,
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,0,10,12427656,,instructions,0.00%,2124375,100.00,3.10,insn per cycle
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,1,10,3998753,,cycles,0.13%,2140458,100.00,,
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,1,10,12429415,,instructions,0.00%,2140291,100.00,3.10,insn per cycle
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,2,10,4000718,,cycles,0.14%,2141376,100.00,,
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,2,10,12430176,,instructions,0.00%,2141250,100.00,3.10,insn per cycle
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,3,10,3999204,,cycles,0.12%,2141041,100.00,,
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,3,10,12428618,,instructions,0.00%,2140875,100.00,3.10,insn per cycle
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,4,10,2681728,,cycles,0.14%,980541,100.00,,
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,4,10,12467174,,instructions,0.04%,980375,100.00,4.65,insn per cycle
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,5,10,2677172,,cycles,0.11%,977917,100.00,,
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,5,10,12464629,,instructions,0.04%,977792,100.00,4.66,insn per cycle
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,6,10,2681364,,cycles,0.11%,980751,100.00,,
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,6,10,12465615,,instructions,0.04%,980667,100.00,4.66,insn per cycle
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,7,10,2680526,,cycles,0.16%,979751,100.00,,
+SRTEAM_serial,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o,7,10,12468502,,instructions,0.04%,979667,100.00,4.67,insn per cycle
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,0,10,5822565,,cycles,0.21%,3761417,100.00,,
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,0,10,17173535,,instructions,0.00%,3761250,100.00,2.95,insn per cycle
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,1,10,5808501,,cycles,0.16%,3727124,100.00,,
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,1,10,17171202,,instructions,0.00%,3727000,100.00,2.95,insn per cycle
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,2,10,5808598,,cycles,0.21%,3745501,100.00,,
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,2,10,17167073,,instructions,0.00%,3745334,100.00,2.95,insn per cycle
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,3,10,5805407,,cycles,0.18%,3735334,100.00,,
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,3,10,17171028,,instructions,0.00%,3735208,100.00,2.95,insn per cycle
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,4,10,3835501,,cycles,0.12%,1844666,100.00,,
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,4,10,17199151,,instructions,0.02%,1844583,100.00,4.48,insn per cycle
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,5,10,3835603,,cycles,0.11%,1849125,100.00,,
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,5,10,17206329,,instructions,0.03%,1849084,100.00,4.49,insn per cycle
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,6,10,3793751,,cycles,0.25%,2630751,100.00,,
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,6,10,17166661,,instructions,0.04%,2630375,100.00,4.49,insn per cycle
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,7,10,3796480,,cycles,0.26%,2551625,100.00,,
+SRTEAM_openmp,/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o,7,10,17167580,,instructions,0.03%,2551250,100.00,4.49,insn per cycle
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,0,10,7905518,,cycles,0.66%,6507834,100.00,,
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,0,10,17068710,,instructions,0.08%,6507583,100.00,2.15,insn per cycle
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,1,10,7845544,,cycles,0.49%,6494709,100.00,,
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,1,10,17061973,,instructions,0.01%,6494459,100.00,2.16,insn per cycle
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,2,10,7873738,,cycles,0.40%,6509458,100.00,,
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,2,10,17076902,,instructions,0.01%,6509250,100.00,2.17,insn per cycle
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,3,10,7871895,,cycles,0.43%,6500291,100.00,,
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,3,10,17069976,,instructions,0.03%,6500083,100.00,2.16,insn per cycle
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,4,10,4932468,,cycles,0.24%,3460625,100.00,,
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,4,10,17071643,,instructions,0.02%,3460500,100.00,3.44,insn per cycle
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,5,10,4924364,,cycles,0.19%,3458958,100.00,,
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,5,10,17078046,,instructions,0.03%,3458958,100.00,3.45,insn per cycle
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,6,10,4940005,,cycles,0.17%,3471500,100.00,,
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,6,10,17078548,,instructions,0.03%,3471417,100.00,3.45,insn per cycle
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,7,10,4927259,,cycles,0.17%,3453042,100.00,,
+cloverleaf_openmp,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf,7,10,17080325,,instructions,0.03%,3452958,100.00,3.45,insn per cycle
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,0,10,5207483,,cycles,0.52%,3388083,100.00,,
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,0,10,13191704,,instructions,0.01%,3387875,100.00,2.52,insn per cycle
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,1,10,5196931,,cycles,0.51%,3414375,100.00,,
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,1,10,13183894,,instructions,0.01%,3414250,100.00,2.52,insn per cycle
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,2,10,5189716,,cycles,0.50%,3384708,100.00,,
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,2,10,13192245,,instructions,0.01%,3384250,100.00,2.53,insn per cycle
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,3,10,5176135,,cycles,0.48%,3392708,100.00,,
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,3,10,13186815,,instructions,0.01%,3392500,100.00,2.53,insn per cycle
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,4,10,2971549,,cycles,0.34%,1436125,100.00,,
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,4,10,13196599,,instructions,0.02%,1436000,100.00,4.41,insn per cycle
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,5,10,2971965,,cycles,0.37%,1412126,100.00,,
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,5,10,13198860,,instructions,0.01%,1412084,100.00,4.41,insn per cycle
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,6,10,2970504,,cycles,0.35%,1424375,100.00,,
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,6,10,13202402,,instructions,0.03%,1424208,100.00,4.41,insn per cycle
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,7,10,2975391,,cycles,0.33%,1404417,100.00,,
+cloverleaf_serial,/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf,7,10,13195410,,instructions,0.02%,1404333,100.00,4.41,insn per cycle
