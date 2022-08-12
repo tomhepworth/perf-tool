@@ -1,0 +1,52 @@
+{
+    "benchmarks": [
+	{
+                "name": "loop/1000000",
+                "cmd": "awk 'BEGIN{for(i=0;i<1000000;i++){}}'"
+        },
+        {
+        	"name": "bude-gcc10.3.0-armv8.4-a",
+		"run_from": "/home/tomhepworth/armv8.4_compiled_binaries/miniBUDE/openmp",
+        	"cmd": "/home/tomhepworth/armv8.4_compiled_binaries/miniBUDE/openmp/bude-gcc10.3.0-armv8.4-a"
+        },
+	{
+		"name": "tealeaf-3d-serial-gcc10.3.0-armv8.4-a",
+		"run_from": "/home/tomhepworth/armv8.4_compiled_binaries/TeaLeaf/3d/serial",
+		"cmd": "/home/tomhepworth/armv8.4_compiled_binaries/TeaLeaf/3d/serial/tealeaf-gcc10.3.0-armv8.4-a"
+	},
+	{
+		"name": "tealeaf-3d-openmp-gcc10.3.0-armv8.4-a",
+		"run_from": "/home/tomhepworth/armv8.4_compiled_binaries/TeaLeaf/3d/openmp",
+		"cmd":	"/home/tomhepworth/armv8.4_compiled_binaries/TeaLeaf/3d/openmp/tealeaf-gcc10.3.0-armv8.4-a"
+	},
+	{
+		"name": "tealeaf-2d-serial-gcc10.3.0-armv8.4-a",
+		"run_from": "/home/tomhepworth/armv8.4_compiled_binaries/TeaLeaf/2d/openmp",
+		"cmd": "/home/tomhepworth/armv8.4_compiled_binaries/TeaLeaf/2d/serial/tealeaf-gcc10.3.0-armv8.4-a"
+	},
+	{
+		"name": "tealeaf-2d-openmp-gcc10.3.0-armv8.4-a",
+		"run_from": "/home/tomhepworth/armv8.4_compiled_binaries/TeaLeaf/2d/serial",
+		"cmd":	"/home/tomhepworth/armv8.4_compiled_binaries/TeaLeaf/2d/openmp/tealeaf-gcc10.3.0-armv8.4-a"
+	},
+	{
+		"name": "cloverleaf-serial-gcc10.3.0-armv8.4-a",
+		"cmd": "/home/tomhepworth/armv8.4_compiled_binaries/CloverLeaf/serial/cloverleaf-gcc10.3.0-armv8.4-a"
+	},
+	{
+		"name": "cloverleaf-openmp-gcc10.3.0-armv8.4-a",
+		"cmd": "/home/tomhepworth/armv8.4_compiled_binaries/CloverLeaf/openmp/cloverleaf-gcc10.3.0-armv8.4-a"
+	},
+	{
+		"name": "stream-serial-gcc10.3.0-armv8.4-a",
+		"cmd": "/home/tomhepworth/armv8.4_compiled_binaries/STREAM/serial/stream-gcc10.3.0-armv8.4-a"
+	},
+	{
+		"name": "stream-openmp-gcc10.3.0-armv8.4-a",
+		"cmd": "/home/tomhepworth/armv8.4_compiled_binaries/STREAM/openmp/stream-gcc10.3.0-armv8.4-a"
+	}
+
+    ],
+    "cores": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
