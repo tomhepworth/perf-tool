@@ -27,7 +27,7 @@ cpus = config["cores"]
 events = ["cycles", "instructions"]
 events_str = ",".join(events)
 perf_cmd = "perf stat -x, --all-user -C {} -e {} -r {} "
-taskset_cmd = "taskset --cpu-list {} "
+taskset_cmd = "sudo taskset --cpu-list {} "
 with open("benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:%S")), "a") as output_file:
 
     # write csv column headers
