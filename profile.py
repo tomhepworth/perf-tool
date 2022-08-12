@@ -1,6 +1,7 @@
 import subprocess
 import os
 import json
+import sys
 from datetime import datetime
 
 WRITE_COLUMN_HEADERS = True
@@ -10,7 +11,7 @@ if os.geteuid() != 0:
     print("Aborted: This script must be run as sudo.")
     exit(1)
 
-config_file = open("config.json")
+config_file = open(sys.argv[1])
 config = json.load(config_file)
 
 wd = os.getcwd() # get starting working directory to change back to if any benchmarks requre being run from a different dir
