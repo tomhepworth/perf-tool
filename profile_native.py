@@ -1,17 +1,37 @@
 import subprocess
 import os
 import json
-import sys
+import argparse
 from datetime import datetime
 
-WRITE_COLUMN_HEADERS = True
+CONFIG_PATH = ""
+
+argparser = argparse.ArgumentParser(description="Perf tool native profiler arguments",
+                                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+argparser.add_argument("CONFIG_PATH", nargs='?', default="config.json", help="Config file path")
+argparser.add_argument("--disable-column-headers", dest="disableColumnHeaders", action="store_true", help="Output CSV without headers/titles to the columns")
+argparser.add_argument("--simeng", nargs=2, default="", help="Format: `--simeng <path to simeng binary> <path to simeng config>`\nPath to simeng binary and config. This will also enable running the benchmark in SimEng rather than on native hardware")
+
+args = argparser.parse_args()
+
+WRITE_COLUMN_HEADERS = not(args.disableColumnHeaders)
+
+# Settings for enabling running in simeng
+if(args.simeng != ''):
+    SIMENG_BIN = args.simeng[0]
+    SIMENG_CONF = args.simeng[1]
+    SIMENG = True
+
+print("==========args==========")
+print(args)
 
 # Must be sudo for perf stat to work properly
 if os.geteuid() != 0:
     print("Aborted: This script must be run as sudo.")
     exit(1)
 
-config_file = open(sys.argv[1])
+config_file = open(CONFIG_PATH)
 config = json.load(config_file)
 
 wd = os.getcwd() # get starting working directory to change back to if any benchmarks requre being run from a different dir

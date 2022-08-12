@@ -1,10 +1,6 @@
 {
     "benchmarks": [
-	{
-                "name": "loop/1000000",
-                "cmd": "awk 'BEGIN{for(i=0;i<1000000;i++){}}'"
-        },
-        {
+	        {
         	"name": "bude-gcc10.3.0-armv8.4-a",
 		"run_from": "/home/tomhepworth/armv8.4_compiled_binaries/miniBUDE/openmp",
         	"cmd": "/home/tomhepworth/armv8.4_compiled_binaries/miniBUDE/openmp/bude-gcc10.3.0-armv8.4-a"
