@@ -1,1 +1,0 @@
-branch.executed,branch.mispredict,branch.missrate,cycles,decode.earlyFlushes,dispatch.rsStalls,fetch.branchStalls,flushes,ipc,issue.backendStalls,issue.frontendStalls,issue.portBusyStalls,lsq.loadViolations,rename.allocationStalls,rename.lqStalls,rename.robStalls,rename.sqStalls,retired

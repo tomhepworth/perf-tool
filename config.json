@@ -1,54 +1,9 @@
 {
     "benchmarks": [
         {
-        	"name": "loop/1000000",
-         	"cmd": "awk 'BEGIN{for(i=0;i<1000000;i++){}}'"
-        },
-        {
-        	"name": "miniFMM",
-        	"cmd": "/home/tomhepworth/simeng-benchmarks/src/miniFMM/fmm.omp-task"
-        },
-	{
-		"name": "miniBUDE_openmp",
-		"run_from": "/home/tomhepworth/simeng-benchmarks/src/miniBUDE/openmp",
-		"cmd":	"./bude"
-	},
-	{
-		"name": "tealeaf_2d_serial",
-		"run_from": "/home/tomhepworth/simeng-benchmarks/src/TeaLeaf/2d/",
-		"cmd":	"./tealeaf.serial"
-	},
-	{
-		"name": "tealeaf_2d_omp3",
-		"run_from": "/home/tomhepworth/simeng-benchmarks/src/TeaLeaf/2d/",
-		"cmd":	"./tealeaf.omp3"
-	},
-	{
-		"name": "tealeaf_3d_serial",
-		"run_from": "/home/tomhepworth/simeng-benchmarks/src/TeaLeaf/3d/",
-		"cmd":	"./tealeaf_serial"
-	},
-	{
-		"name": "tealeaf_3d_omp3",
-		"run_from": "/home/tomhepworth/simeng-benchmarks/src/TeaLeaf/3d/",
-		"cmd":	"./tealeaf_omp3"
-	},
-	{
-		"name": "SRTEAM_serial",
-		"cmd": "/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_serial.o"
-	},	
-	{
-		"name": "SRTEAM_openmp",
-		"cmd": "/home/tomhepworth/simeng-benchmarks/src/STREAM/stream_c_openmp.o"
-	},
-	{
-		"name": "cloverleaf_openmp",
-		"cmd": "/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/openmp/clover_leaf"
-	},	
-	{
-		"name": "cloverleaf_serial",
-		"cmd": "/home/tomhepworth/simeng-benchmarks/src/CloverLeaf/serial/clover_leaf"
-	}
+        	"name": "test",
+         	"cmd": "/home/tom/university/simeng-internship/H"
+        }
     ],
     "cores": [0, 1, 2, 3, 4, 5, 6, 7]
 } 

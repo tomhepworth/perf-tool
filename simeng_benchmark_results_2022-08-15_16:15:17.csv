@@ -1,0 +1,6 @@
+branch.executed,branch.mispredict,branch.missrate,cycles,decode.earlyFlushes,dispatch.rsStalls,fetch.branchStalls,flushes,ipc,issue.backendStalls,issue.frontendStalls,issue.portBusyStalls,lsq.loadViolations,rename.allocationStalls,rename.lqStalls,rename.robStalls,rename.sqStalls,retired
+,3070,1095,35.7%,25445,0,0,0,1074,0.5,2656,3166,15,3,0,0,0,0,12844
+,2570,995,38.7%,20956,0,0,0,977,0.55,2329,2871,18,6,0,0,0,0,11453
+,3961,1460,36.9%,32904,0,0,0,1429,0.52,3486,4210,24,9,0,0,0,0,16987
+,2604,985,37.8%,21106,0,0,0,956,0.55,2343,2798,20,6,0,0,0,0,11686
+,4022,1475,36.7%,33110,0,0,0,1445,0.52,3505,4244,19,9,0,0,0,0,17220

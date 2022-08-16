@@ -1,7 +1,6 @@
 import subprocess
 import os
 import json
-import sys
 import argparse
 import re
 from datetime import datetime
@@ -11,14 +10,20 @@ now = datetime.now()
 argparser = argparse.ArgumentParser(description="Perf tool SimEng profiler arguments",
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-argparser.add_argument("profiler_config", help="Path to profiler config")
-argparser.add_argument("simeng_binary", help="Path to simeng binary")
-argparser.add_argument("simeng_config", help="Path to simeng config")
+argparser.add_argument("profiler_config", help="Path to profiler config - must be absolute")
+argparser.add_argument("simeng_binary", help="Path to simeng binary - must be absolute")
+argparser.add_argument("simeng_config", help="Path to simeng config - must be absolute")
 argparser.add_argument("--disable-column-headers", dest="disableColumnHeaders", action="store_true", help="Output CSV without headers/titles to the columns")
+argparser.add_argument("--output-file-name", dest="outputFileName", type=str, help="Name of output file")
+argparser.add_argument("--print-simeng-output",dest="printSimengOutput",action="store_true", help="Print stdout from simeng")
 
 args = argparser.parse_args()
 
 WRITE_COLUMN_HEADERS = not(args.disableColumnHeaders)
+OUTPUT_FILE_NAME = "simeng_benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:%S"))
+
+if(args.outputFileName):
+    OUTPUT_FILE_NAME = args.outputFileName
 
 config_file = open(args.profiler_config)
 config = json.load(config_file)
@@ -26,7 +31,7 @@ benchmarks = config["benchmarks"]
 
 simeng_cmd = "{} {} ".format(args.simeng_binary, args.simeng_config)
 
-with open("simeng_benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:%S")), "a") as output_file:
+with open(OUTPUT_FILE_NAME, "a") as output_file:
 
     if WRITE_COLUMN_HEADERS:
         output_file.write("branch.executed,branch.mispredict,branch.missrate,cycles,decode.earlyFlushes,dispatch.rsStalls,fetch.branchStalls,flushes,ipc,issue.backendStalls,issue.frontendStalls,issue.portBusyStalls,lsq.loadViolations,rename.allocationStalls,rename.lqStalls,rename.robStalls,rename.sqStalls,retired\n")
@@ -44,15 +49,24 @@ with open("simeng_benchmark_results_{}.csv".format(now.strftime("%Y-%m-%d_%H:%M:
 
         cmd = simeng_cmd + benchmark["cmd"]
         cmd_output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT).decode("utf-8")
+
+        if(args.printSimengOutput):
+            print(cmd_output)
+
         lines = cmd_output.splitlines()
         
         # Final 20 lines are the performance output, minus two lines of simeng performance stats
         performance_output = lines[-20:-2]
         
         output_line = ""
-        for line in lines:
+        for line in performance_output:
             output_line += "," + re.sub(r'[a-zA-Z]*\.*[a-zA-Z]+: ', '',line)
+        
+        output_line += "\n";
 
+        output_file.write(output_line)
+
+        print(">>>Finished Benchmark\n")
         # branch.executed: 2388270
         # branch.mispredict: 354600
         # branch.missrate: 14.8%
