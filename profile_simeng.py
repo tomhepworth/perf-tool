@@ -16,7 +16,7 @@ argparser.add_argument("simeng_config", help="Path to simeng config - must be ab
 argparser.add_argument("--disable-column-headers", dest="disableColumnHeaders", action="store_true", help="Output CSV without headers/titles to the columns")
 argparser.add_argument("--output-file-name", dest="outputFileName", type=str, help="Name of output file")
 argparser.add_argument("--print-simeng-output",dest="printSimengOutput",action="store_true", help="Print stdout from simeng")
-
+argparser.add_argument("--save-stdout",dest="saveStdout",action="store_true", help="Print stdout from simeng")
 args = argparser.parse_args()
 
 WRITE_COLUMN_HEADERS = not(args.disableColumnHeaders)
@@ -49,6 +49,11 @@ with open(OUTPUT_FILE_NAME, "a") as output_file:
 
         cmd = simeng_cmd + benchmark["cmd"]
         cmd_output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT).decode("utf-8")
+        
+        if(args.saveStdout):
+            with open(benchmark["name"]+".out", "w") as stdoutFile:
+                stdoutFile.write(cmd_output)
+                stdoutFile.close()
 
         if(args.printSimengOutput):
             print(cmd_output)
@@ -67,24 +72,7 @@ with open(OUTPUT_FILE_NAME, "a") as output_file:
         output_file.write(output_line)
 
         print(">>>Finished Benchmark\n")
-        # branch.executed: 2388270
-        # branch.mispredict: 354600
-        # branch.missrate: 14.8%
-        # cycles: 21192293
-        # decode.earlyFlushes: 299358
-        # dispatch.rsStalls: 0
-        # fetch.branchStalls: 0
-        # flushes: 637571
-        # ipc: 0.72
-        # issue.backendStalls: 2517879
-        # issue.frontendStalls: 1079298
-        # issue.portBusyStalls: 290
-        # lsq.loadViolations: 4037
-        # rename.allocationStalls: 16852
-        # rename.lqStalls: 0
-        # rename.robStalls: 0
-        # rename.sqStalls: 0
-        # retired: 15246285
-
-        # Finished 21192293 ticks in 480029ms (44 kHz, 0.032 MIPS)
-
+    
+    #close file and exit
+    output_file.close()
+   
